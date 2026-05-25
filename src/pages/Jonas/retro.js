@@ -1,119 +1,104 @@
-/* ========================================
-   RETRO STORE — JavaScript
-   ======================================== */
+// ─── Genera cards y modals desde el JSON ───────────────────────────────────
 
-(function () {
-  'use strict';
+async function loadProducts() {
+  const res = await fetch('/src/pages/Jonas/retro-products.json');
+  const products = await res.json();
 
-  // ---- Estado del carrito ----
+  const grid   = document.getElementById('retro-grid');
+  const modals = document.getElementById('retro-modals');
+
+  products.forEach(p => {
+    const modalId = `modal${p.id}`;
+
+    // ── CARD ──────────────────────────────────────────────────────────────
+    const card = document.createElement('div');
+    card.className = 'retro-card';
+    card.dataset.modal = modalId;
+    card.innerHTML = `
+      <div class="card-img-wrap">
+        <img src="${p.img}" alt="${p.name}">
+        <div class="card-year">${p.year}</div>
+      </div>
+      <div class="card-body-inner">
+        <div class="card-brand">${p.brand}</div>
+        <h2>${p.name}</h2>
+        <p class="desc">${p.desc}</p>
+        <div class="card-meta">
+          <span class="price">${p.price}</span>
+          <span class="reviews">${p.stars} <em>${p.reviews}</em></span>
+        </div>
+        <div class="card-buttons">
+          <button class="btn-ver"
+            data-bs-toggle="modal"
+            data-bs-target="#${modalId}">Ver más</button>
+          <button class="btn-cart add-cart"
+            data-name="${p.name}">+ Carrito</button>
+        </div>
+      </div>`;
+    grid.appendChild(card);
+
+    // ── MODAL ─────────────────────────────────────────────────────────────
+    const detailsHTML = p.details
+      .map(d => `<li><span>${d.label}</span><strong>${d.value}</strong></li>`)
+      .join('');
+
+    const modal = document.createElement('div');
+    modal.className = 'modal fade';
+    modal.id = modalId;
+    modal.tabIndex = -1;
+    modal.innerHTML = `
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div>
+              <div class="modal-brand">${p.brand} · ${p.year}</div>
+              <h5 class="modal-title">${p.brand} ${p.name}</h5>
+            </div>
+            <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-img-col">
+              <img src="${p.img}" class="modal-img" alt="${p.name}">
+            </div>
+            <div class="modal-info-col">
+              <p>${p.modalDesc}</p>
+              <ul class="retro-details">${detailsHTML}</ul>
+              <div class="modal-price-row">
+                <span class="modal-price">${p.price}</span>
+                <span class="modal-reviews">${p.stars} ${p.reviews} reseñas</span>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+            <button class="btn-modal-cart add-cart"
+              data-name="${p.name}"
+              data-bs-dismiss="modal">Agregar al carrito</button>
+          </div>
+        </div>
+      </div>`;
+    modals.appendChild(modal);
+  });
+
+  // Inicializa lógica del carrito después de renderizar
+  initCart();
+}
+
+// ─── Lógica del carrito (igual que antes) ──────────────────────────────────
+
+function initCart() {
   let cartCount = 0;
-  let alertTimeout = null;
 
-  // ---- Referencias DOM ----
-  const cartAlert = document.getElementById('cartAlert');
-  const cartCounter = document.getElementById('cartCounter');
-  const cartNum = document.getElementById('cartNum');
-
-  // ---- Mostrar alerta ----
-  function showAlert(name) {
-    if (alertTimeout) clearTimeout(alertTimeout);
-
-    cartAlert.textContent = '';
-
-    const icon = document.createElement('span');
-    icon.className = 'cart-alert-icon';
-    icon.textContent = '✓';
-    cartAlert.appendChild(icon);
-
-    const text = document.createTextNode(
-      name ? `"${name}" agregado al carrito` : 'Artículo agregado al carrito'
-    );
-    cartAlert.appendChild(text);
-
-    cartAlert.classList.add('show');
-
-    alertTimeout = setTimeout(() => {
-      cartAlert.classList.remove('show');
-    }, 2800);
-  }
-
-  // ---- Actualizar contador ----
-  function updateCounter() {
+  document.addEventListener('click', e => {
+    if (!e.target.classList.contains('add-cart')) return;
     cartCount++;
-    cartNum.textContent = cartCount;
+    document.getElementById('cartNum').textContent = cartCount;
 
-    // Animación de "bump"
-    cartNum.classList.remove('bump');
-    void cartNum.offsetWidth; // reflow forzado para reiniciar animación
-    cartNum.classList.add('bump');
-  }
-
-  // ---- Handler principal para "Agregar al carrito" ----
-  function handleAddToCart(event) {
-    const button = event.target.closest('.add-cart');
-    if (!button) return;
-
-    const name = button.dataset.name || null;
-    showAlert(name);
-    updateCounter();
-  }
-
-  // ---- Delegar clicks en toda la página ----
-  document.addEventListener('click', handleAddToCart);
-
-  // ---- Cerrar alert al hacer click en él ----
-  cartAlert.addEventListener('click', () => {
-    cartAlert.classList.remove('show');
-    if (alertTimeout) clearTimeout(alertTimeout);
+    const alert = document.getElementById('cartAlert');
+    alert.classList.add('show');
+    setTimeout(() => alert.classList.remove('show'), 2500);
   });
+}
 
-  // ---- Inicializar Bootstrap modals correctamente ----
-  // Asegura que los botones "Ver más" dentro de modals abiertos
-  // no hereden eventos fantasma
-  document.querySelectorAll('.modal').forEach((modalEl) => {
-    modalEl.addEventListener('shown.bs.modal', () => {
-      modalEl.querySelectorAll('.add-cart').forEach((btn) => {
-        btn.setAttribute('tabindex', '0');
-      });
-    });
-
-    modalEl.addEventListener('hidden.bs.modal', () => {
-      // Restaurar foco al body para evitar bloqueos de Bootstrap
-      document.body.focus();
-    });
-  });
-
-  // ---- Hover en tarjeta: highlight suave ----
-  document.querySelectorAll('.retro-card').forEach((card) => {
-    card.addEventListener('mouseenter', () => {
-      card.style.willChange = 'transform, box-shadow';
-    });
-    card.addEventListener('mouseleave', () => {
-      card.style.willChange = '';
-    });
-  });
-
-  // ---- Animación de entrada de cards al hacer scroll ----
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -40px 0px',
-  };
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
-
-  document.querySelectorAll('.retro-card').forEach((card, index) => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(24px)';
-    card.style.transition = `opacity 0.4s ease ${index * 0.06}s, transform 0.4s ease ${index * 0.06}s`;
-    observer.observe(card);
-  });
-
-})();
+// ─── Arranque ──────────────────────────────────────────────────────────────
+loadProducts();
