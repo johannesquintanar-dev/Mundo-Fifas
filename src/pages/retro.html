@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artículos Retro</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./Jonas/retro.css">
+</head>
+
+<body>
+
+  <!-- ALERTA CARRITO -->
+  <div class="cart-alert" id="cartAlert">
+    <span class="cart-alert-icon">✓</span>
+    Artículo agregado al carrito
+  </div>
+
+  <!-- COUNTER FLOTANTE -->
+  <div class="cart-counter" id="cartCounter">
+    <span class="cart-counter-icon">🛒</span>
+    <span class="cart-counter-num" id="cartNum">0</span>
+  </div>
+
+  <!-- HEADER -->
+  <header class="retro-header">
+    <div class="header-inner">
+      <div class="header-badge">Colección 2000s</div>
+      <h1>ARTÍCULOS<br>RETRO</h1>
+      <p>Revive la época dorada del fútbol con artículos clásicos,<br>balones históricos y accesorios legendarios.</p>
+    </div>
+  </header>
+
+  <!-- GRID DE PRODUCTOS -->
+  <section class="retro-section">
+    <div class="retro-container">
+
+      <!-- CARD 1 -->
+      <div class="retro-card" data-modal="modal1">
+        <div class="card-img-wrap">
+          <img src="../assets/img/img-Jonas/total 90.png" alt="Nike Total 90 Aerow">
+          <div class="card-year">2004</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Nike</div>
+          <h2>Total 90 Aerow</h2>
+          <p class="desc">Balón icónico utilizado en los años 2004–2005.</p>
+          <div class="card-meta">
+            <span class="price">$2,499 MXN</span>
+            <span class="reviews">★★★★★ <em>142</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal1">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Nike Total 90 Aerow">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="retro-card" data-modal="modal2">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/OIP.webp" alt="Adidas Jabulani">
+          <div class="card-year">2010</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Adidas</div>
+          <h2>Jabulani</h2>
+          <p class="desc">Balón oficial del Mundial Sudáfrica 2010.</p>
+          <div class="card-meta">
+            <span class="price">$3,199 MXN</span>
+            <span class="reviews">★★★★★ <em>288</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal2">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Adidas Jabulani">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="retro-card" data-modal="modal3">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/9fa316_bcc7895a04bf42f7a5e46f329b2bb18d~mv2.jpg" alt="Nike Mercurial Vapor R9">
+          <div class="card-year">2002</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Nike</div>
+          <h2>Mercurial Vapor R9</h2>
+          <p class="desc">Inspirados en Ronaldo Nazário, el Fenómeno.</p>
+          <div class="card-meta">
+            <span class="price">$5,899 MXN</span>
+            <span class="reviews">★★★★☆ <em>91</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal3">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Nike Mercurial Vapor R9">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="retro-card" data-modal="modal4">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/OIP (1).webp" alt="Adidas Predator Mania">
+          <div class="card-year">2002</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Adidas</div>
+          <h2>Predator Mania</h2>
+          <p class="desc">Uno de los pares más legendarios del fútbol.</p>
+          <div class="card-meta">
+            <span class="price">$6,499 MXN</span>
+            <span class="reviews">★★★★★ <em>203</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal4">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Adidas Predator Mania">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="retro-card" data-modal="modal5">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/8244966227_905d1f6f8e_b.jpg" alt="Teamgeist 2006">
+          <div class="card-year">2006</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Adidas</div>
+          <h2>Teamgeist 2006</h2>
+          <p class="desc">Balón oficial del Mundial Alemania 2006.</p>
+          <div class="card-meta">
+            <span class="price">$2,999 MXN</span>
+            <span class="reviews">★★★★☆ <em>84</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal5">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Adidas Teamgeist 2006">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="retro-card" data-modal="modal6">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/OIP (2).webp" alt="Fevernova 2002">
+          <div class="card-year">2002</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Adidas</div>
+          <h2>Fevernova 2002</h2>
+          <p class="desc">Balón clásico del Mundial Corea–Japón 2002.</p>
+          <div class="card-meta">
+            <span class="price">$3,499 MXN</span>
+            <span class="reviews">★★★★★ <em>117</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal6">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Adidas Fevernova 2002">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 7 -->
+      <div class="retro-card" data-modal="modal7">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/descarga.webp" alt="Adidas Azteca">
+          <div class="card-year">1986</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Adidas</div>
+          <h2>Azteca 1986</h2>
+          <p class="desc">Balón histórico del Mundial México 86.</p>
+          <div class="card-meta">
+            <span class="price">$4,299 MXN</span>
+            <span class="reviews">★★★★★ <em>312</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal7">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Adidas Azteca 1986">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 8 -->
+      <div class="retro-card" data-modal="modal8">
+        <div class="card-img-wrap">
+          <img src="/src/assets/img/img-Jonas/OIP (3).webp" alt="Nike Total 90 Laser">
+          <div class="card-year">2004</div>
+        </div>
+        <div class="card-body-inner">
+          <div class="card-brand">Nike</div>
+          <h2>Total 90 Laser</h2>
+          <p class="desc">Tacos clásicos utilizados por Wayne Rooney.</p>
+          <div class="card-meta">
+            <span class="price">$4,899 MXN</span>
+            <span class="reviews">★★★★☆ <em>101</em></span>
+          </div>
+          <div class="card-buttons">
+            <button class="btn-ver" data-bs-toggle="modal" data-bs-target="#modal8">Ver más</button>
+            <button class="btn-cart add-cart" data-name="Nike Total 90 Laser">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== MODALS ===== -->
+
+  <!-- MODAL 1 -->
+  <div class="modal fade" id="modal1" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Nike · 2004</div>
+            <h5 class="modal-title">Nike Total 90 Aerow</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="../assets/img/img-Jonas/total 90.png" class="modal-img" alt="Nike Total 90 Aerow">
+          </div>
+          <div class="modal-info-col">
+            <p>Uno de los balones más icónicos de los 2000s. Diseñado para máxima precisión y velocidad en partidos profesionales de alto nivel.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2004</strong></li>
+            <li><span>Marca</span><strong>Nike</strong></li>
+            <li><span>Tipo</span><strong>Balón profesional</strong></li>
+            <li><span>Liga</span><strong>Premier League</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$2,499 MXN</span>
+            <span class="modal-reviews">★★★★★ 142 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Nike Total 90 Aerow" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 2 -->
+  <div class="modal fade" id="modal2" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Adidas · 2010</div>
+            <h5 class="modal-title">Adidas Jabulani</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/OIP.webp" class="modal-img" alt="Adidas Jabulani">
+          </div>
+          <div class="modal-info-col">
+            <p>Balón oficial del Mundial Sudáfrica 2010. Conocido por su aerodinámica inusual que revolucionó el fútbol internacional y generó polémica entre los porteros.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2010</strong></li>
+            <li><span>Marca</span><strong>Adidas</strong></li>
+            <li><span>Torneo</span><strong>Mundial Sudáfrica 2010</strong></li>
+            <li><span>Tipo</span><strong>Balón oficial FIFA</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$3,199 MXN</span>
+            <span class="modal-reviews">★★★★★ 288 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Adidas Jabulani" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 3 -->
+  <div class="modal fade" id="modal3" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Nike · 2002</div>
+            <h5 class="modal-title">Nike Mercurial Vapor R9</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/9fa316_bcc7895a04bf42f7a5e46f329b2bb18d~mv2.jpg" class="modal-img" alt="Nike Mercurial Vapor R9">
+          </div>
+          <div class="modal-info-col">
+            <p>Diseñados en honor a Ronaldo Nazário "El Fenómeno", estos tacos marcaron una era. Usados durante el Mundial 2002, donde R9 fue el máximo goleador.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2002</strong></li>
+            <li><span>Marca</span><strong>Nike</strong></li>
+            <li><span>Tipo</span><strong>Tacos profesionales</strong></li>
+            <li><span>Inspiración</span><strong>Ronaldo Nazário</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$5,899 MXN</span>
+            <span class="modal-reviews">★★★★☆ 91 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Nike Mercurial Vapor R9" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 4 -->
+  <div class="modal fade" id="modal4" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Adidas · 2002</div>
+            <h5 class="modal-title">Adidas Predator Mania</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/OIP (1).webp" class="modal-img" alt="Adidas Predator Mania">
+          </div>
+          <div class="modal-info-col">
+            <p>Considerados por muchos como el taco más legendario de la historia. Usados por Zidane, Beckham y Figo, definieron el estilo de una generación de futbolistas.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2002</strong></li>
+            <li><span>Marca</span><strong>Adidas</strong></li>
+            <li><span>Tipo</span><strong>Tacos profesionales</strong></li>
+            <li><span>Usuarios</span><strong>Zidane, Beckham, Figo</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$6,499 MXN</span>
+            <span class="modal-reviews">★★★★★ 203 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Adidas Predator Mania" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 5 -->
+  <div class="modal fade" id="modal5" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Adidas · 2006</div>
+            <h5 class="modal-title">Adidas Teamgeist 2006</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/8244966227_905d1f6f8e_b.jpg" class="modal-img" alt="Teamgeist 2006">
+          </div>
+          <div class="modal-info-col">
+            <p>El balón del "Sommermärchen" alemán. Diseño revolucionario de 14 paneles que mejoró el control y la trayectoria. Utilizado en uno de los mundiales más emotivos.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2006</strong></li>
+            <li><span>Marca</span><strong>Adidas</strong></li>
+            <li><span>Torneo</span><strong>Mundial Alemania 2006</strong></li>
+            <li><span>Paneles</span><strong>14 paneles termosellados</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$2,999 MXN</span>
+            <span class="modal-reviews">★★★★☆ 84 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Adidas Teamgeist 2006" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 6 -->
+  <div class="modal fade" id="modal6" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Adidas · 2002</div>
+            <h5 class="modal-title">Adidas Fevernova 2002</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/OIP (2).webp" class="modal-img" alt="Fevernova 2002">
+          </div>
+          <div class="modal-info-col">
+            <p>El polémico balón del primer mundial asiático. Su diseño colorido con motivos orientales lo hizo único. Fue criticado por porteros pero amado por coleccionistas.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2002</strong></li>
+            <li><span>Marca</span><strong>Adidas</strong></li>
+            <li><span>Torneo</span><strong>Mundial Corea–Japón 2002</strong></li>
+            <li><span>Especial</span><strong>Primer mundial en Asia</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$3,499 MXN</span>
+            <span class="modal-reviews">★★★★★ 117 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Adidas Fevernova 2002" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 7 -->
+  <div class="modal fade" id="modal7" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Adidas · 1986</div>
+            <h5 class="modal-title">Adidas Azteca 1986</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/descarga.webp" class="modal-img" alt="Adidas Azteca">
+          </div>
+          <div class="modal-info-col">
+            <p>El primer balón sintético en la historia de los mundiales. Testigo de la "Mano de Dios" y el "Gol del Siglo" de Diego Armando Maradona. Una reliquia absoluta.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>1986</strong></li>
+            <li><span>Marca</span><strong>Adidas</strong></li>
+            <li><span>Torneo</span><strong>Mundial México 1986</strong></li>
+            <li><span>Histórico</span><strong>Primer balón sintético FIFA</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$4,299 MXN</span>
+            <span class="modal-reviews">★★★★★ 312 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Adidas Azteca 1986" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL 8 -->
+  <div class="modal fade" id="modal8" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-brand">Nike · 2004</div>
+            <h5 class="modal-title">Nike Total 90 Laser</h5>
+          </div>
+          <button class="btn-close-custom" data-bs-dismiss="modal">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="modal-img-col">
+            <img src="/src/assets/img/img-Jonas/OIP (3).webp" class="modal-img" alt="Nike Total 90 Laser">
+          </div>
+          <div class="modal-info-col">
+            <p>Los tacos preferidos de Wayne Rooney en su época dorada. Diseño robusto y suela de alto agarre que definió el estilo de juego físico de la Premier League de los 2000s.</p>
+          <ul class="retro-details">
+            <li><span>Año</span><strong>2004</strong></li>
+            <li><span>Marca</span><strong>Nike</strong></li>
+            <li><span>Tipo</span><strong>Tacos profesionales</strong></li>
+            <li><span>Usuario icónico</span><strong>Wayne Rooney</strong></li>
+          </ul>
+          <div class="modal-price-row">
+            <span class="modal-price">$4,899 MXN</span>
+            <span class="modal-reviews">★★★★☆ 101 reseñas</span>
+          </div>
+          </div>
+        </div><div class="modal-footer">
+          <button class="btn-modal-close" data-bs-dismiss="modal">Cerrar</button>
+          <button class="btn-modal-cart add-cart" data-name="Nike Total 90 Laser" data-bs-dismiss="modal">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="retro.js"></script>
+
+</body>
+</html>
